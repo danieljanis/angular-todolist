@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TodoService } from '../../services/todo.service'
 import { Todo } from 'src/app/models/Todo';
 
 @Component({
@@ -10,7 +11,7 @@ export class TodoItemComponent implements OnInit {
   @Input()
   todo: Todo = new Todo;
 
-  constructor() { }
+  constructor(private todoService:TodoService) { }
 
   ngOnInit() {
   }
@@ -25,8 +26,12 @@ export class TodoItemComponent implements OnInit {
     return classes;
   }
 
-  onToggle(todo: { completed: boolean; }) {
+  onToggle(todo: any) {
+    // Toggle in UI
     todo.completed = !todo.completed;
+    // Toggle on 'server'
+    this.todoService.toggleCompleted(todo).subscribe(todo =>
+    console.log(todo));
   }
 
   onDelete(todo: any) {
