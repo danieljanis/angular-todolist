@@ -10,7 +10,9 @@ import { Todo } from 'src/app/models/Todo';
 export class TodoItemComponent implements OnInit {
   @Input()
   todo: Todo = new Todo;
-
+  @Output()
+  deleteTodo: EventEmitter<Todo> = new EventEmitter();
+  
   constructor(private todoService:TodoService) { }
 
   ngOnInit() {
@@ -35,6 +37,6 @@ export class TodoItemComponent implements OnInit {
   }
 
   onDelete(todo: any) {
-    console.log('deleted')
+    this.deleteTodo.emit(todo);
   }
 }
