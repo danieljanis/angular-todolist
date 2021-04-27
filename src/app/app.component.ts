@@ -9,11 +9,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   name:string = 'Daniel';
 
-  constructor() {
-    this.changeName('Not Daniel');
-  }
+  // constructor() {
+  //   this.changeName('Not Daniel');
+  // }
 
-  changeName(name:string):void {
-    this.name = name;
-  }
+  // changeName(name:string):void {
+  //   this.name = name;
+  // }
 }
