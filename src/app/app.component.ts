@@ -7,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name = 'Daniel';
+  name:string = 'Daniel';
+
+  constructor() {
+    this.changeName('Not Daniel');
+  }
+
+  changeName(name:string):void {
+    this.name = name;
+  }
 }
